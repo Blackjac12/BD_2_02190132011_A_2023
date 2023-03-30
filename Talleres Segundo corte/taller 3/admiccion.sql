@@ -73,10 +73,27 @@ CREATE TABLE `registro` (
   CONSTRAINT `registro_FK_3` FOREIGN KEY (`id_ifeces`) REFERENCES `ifeces` (`id`)
 ) ;
 
-CREATE TABLE Admicion.Aprovados (
+CREATE TABLE Aprovados (
 	id varchar(100) NULL,
 	id_registrados int NULL,
 	aprovados boolean NULL,
 	CONSTRAINT Aprovados_PK PRIMARY KEY (id),
 	CONSTRAINT Aprovados_FK FOREIGN KEY (id_registrados) REFERENCES Admicion.registro(id)
 );
+
+
+CREATE TABLE beca (
+	id int NULL,
+	id_aprovados int NULL,
+	becados boolean NULL,
+	CONSTRAINT beca_PK PRIMARY KEY (id),
+	CONSTRAINT beca_FK FOREIGN KEY (id_aprovados) REFERENCES Admicion.Aprovados(id)
+);
+CREATE TABLE Admicion.beca (
+	id int NULL,
+	id_aprovados int NULL,
+	becados boolean NULL,
+	CONSTRAINT beca_PK PRIMARY KEY (id),
+	CONSTRAINT beca_FK FOREIGN KEY (id_aprovados) REFERENCES Admicion.Aprovados(id)
+)
+
