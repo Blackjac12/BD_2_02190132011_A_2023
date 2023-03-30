@@ -72,3 +72,11 @@ CREATE TABLE `registro` (
   CONSTRAINT `registro_FK_2` FOREIGN KEY (`id_pin`) REFERENCES `pin` (`id`),
   CONSTRAINT `registro_FK_3` FOREIGN KEY (`id_ifeces`) REFERENCES `ifeces` (`id`)
 ) ;
+
+CREATE TABLE Admicion.Aprovados (
+	id varchar(100) NULL,
+	id_registrados int NULL,
+	aprovados boolean NULL,
+	CONSTRAINT Aprovados_PK PRIMARY KEY (id),
+	CONSTRAINT Aprovados_FK FOREIGN KEY (id_registrados) REFERENCES Admicion.registro(id)
+);
