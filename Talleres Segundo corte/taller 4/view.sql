@@ -69,7 +69,12 @@ and r.id_carrera = c.id
 and r.id_ifeces = i.id
 ORDER BY i.puntaje  ASC
  
- 
+CREATE  view estudiantes_materias as
+select c.nombre ,c.apellido ,m.nombre  as materia ,m.creditos,c2.carrera,r.sede  
+FROM  registro r ,contacto c ,carrera c2 ,materia m 
+WHERE r.id_concto  = c.id 
+and r.id_carrera = c2.id 
+AND m.id_carrera = c2.id 
  
  
     
