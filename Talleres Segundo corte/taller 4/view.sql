@@ -24,3 +24,23 @@ AND a.id_registrados = r.id
 AND  a.id_registrados =r.id 
 AND  b.id_aprovados = a.id 
 AND b.becados = 1;
+
+
+CREATE OR REPLACE
+ALGORITHM = UNDEFINED VIEW `Admicion`.`materias` AS
+select
+    `m`.`nombre` AS `nombre`,
+    `m`.`creditos` AS `creditos`,
+    `c`.`carrera` AS `carrera`
+from
+    (`Admicion`.`carrera` `c`
+join `Admicion`.`materia` `m`)
+where
+    `m`.`id_carrera` = `c`.`id`;
+    
+CREATE  view odern As 
+Select *
+FROM  contacto c  
+ORDER BY c.nombre  ASC
+    
+    
