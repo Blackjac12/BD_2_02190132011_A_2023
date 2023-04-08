@@ -77,4 +77,12 @@ and r.id_carrera = c2.id
 AND m.id_carrera = c2.id 
  
  
-    
+CREATE  view   Mejor_puntaje as
+SELECT c2.nombre ,c2.apellido ,c.carrera , i.puntaje as puntaje_de_ifeces ,r.sede 
+FROM registro r ,carrera c ,ifeces i,contacto c2 
+WHERE r.id_concto  = c2.id 
+and r.id_carrera = c.id 
+and r.id_ifeces = i.id
+ORDER BY i.puntaje  DESC
+
+ 
