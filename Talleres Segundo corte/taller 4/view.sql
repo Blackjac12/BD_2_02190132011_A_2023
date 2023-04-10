@@ -146,4 +146,20 @@ FROM  carrera c
 ORDER BY c.carrera DESC  
 
 
+CREATE  view profesores as
+select * 
+FROM profesor p 
+
+CREATE  view formularios as
+select  *
+FROM contacto 
+
+
+CREATE  view porfesores_materias as
+select  p.nombre ,p.apellido,m.nombre as materia ,m.creditos ,c.carrera  
+FROM  profesor p ,materia m , grupo_materia gm ,carrera c 
+WHERE c.id = m.id_carrera 
+and  gm.id_materia  =  m.id 
+and gm.id_profesor = p.id_profesor 
+
 
